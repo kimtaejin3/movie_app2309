@@ -2,11 +2,12 @@ import styled from "styled-components";
 import { movies } from "../util/test_data";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import PosterItem from "../Components/PosterItem";
 
 export default function Home() {
   return (
     <Container>
-      <MoviewPoster>
+      <MoviePoster>
         <Carousel
           showThumbs
           autoPlay
@@ -15,24 +16,16 @@ export default function Home() {
           transitionTime={300}
         >
           {movies.results.map((movie) => {
-            return (
-              <ul key={movie.id}>
-                <img
-                  src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                />
-                <li>{movie.title}</li>
-              </ul>
-            );
+            return <PosterItem key={movie.id} movie={movie} />;
           })}
         </Carousel>
-      </MoviewPoster>
+      </MoviePoster>
     </Container>
   );
 }
 
 const Container = styled.div``;
-
-const MoviewPoster = styled.ul`
+const MoviePoster = styled.div`
   display: flex;
   align-item: center;
 `;
