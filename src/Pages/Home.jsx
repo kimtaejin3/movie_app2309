@@ -7,9 +7,9 @@ export default function Home() {
       <MoviewPoster>
         {movies.results.map((movie) => {
           return (
-            <ul key={movie.id}>
-              <li>{movie.title}</li>
-            </ul>
+            // <ul key={movie.id}>
+            <li key={movie.id}>{movie.title}</li>
+            // </ul>
           );
         })}
       </MoviewPoster>
@@ -19,7 +19,7 @@ export default function Home() {
 
 const Container = styled.div``;
 
-const MoviewPoster = styled.div`
+const MoviewPoster = styled.ul`
   display: flex;
   align-item: center;
 `;
