@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-// import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-// import "react-loading-skeleton/dist/skeleton.css";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -17,9 +17,9 @@ function Card({ movie }) {
     <Container>
       {loading ? (
         <Item>
-          {/* <SkeletonTheme baseColor="#202020" highlightColor="#444"> */}
-          {/* <Skeleton height={300} duartion={2} /> */}
-          {/* </SkeletonTheme> */}
+          <SkeletonTheme baseColor="#202020" highlightColor="#444">
+            <Skeleton height={300} duartion={2} />
+          </SkeletonTheme>
         </Item>
       ) : (
         <Link to={"/movie/" + movie.id}>

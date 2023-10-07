@@ -1,10 +1,20 @@
 import styled from "styled-components";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function PosterItem({ movie }) {
+  const navigate = useNavigate();
+
+  const onClickPoster = () => {
+    navigate("/movie/" + movie.id);
+  };
+
   return (
-    <Container>
+    <Container onClick={onClickPoster}>
       <ImgBox>
-        <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} />
+        <img
+          src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+        />
       </ImgBox>
 
       <Overlay>
@@ -20,6 +30,7 @@ export default function PosterItem({ movie }) {
 
 const Container = styled.div`
   position: relative;
+  cursor: pointer;
 `;
 
 const ImgBox = styled.div`
