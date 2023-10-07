@@ -41,10 +41,9 @@ function Card({ movie }) {
   );
 }
 
-const Container = styled.div`
-  flex-basis: 180px;
-  flex-grow: 1;
-`;
+// flex-basis: 180px;
+//   flex-grow: 1;
+const Container = styled.div``;
 
 //   min-width: 200px;
 const Item = styled.div`

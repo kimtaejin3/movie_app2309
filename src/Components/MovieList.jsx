@@ -44,9 +44,40 @@ const Title = styled.h2`
 
 // flex-flow: row wrap;
 
+// width: 100%;
+// display: flex;
+// flex-wrap: wrap;
+// gap: 10px;
 const Group = styled.div`
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
   gap: 10px;
+
+  @media (max-width: 1330px) {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  @media (max-width: 1148px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @media (max-width: 926px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media (max-width: 776px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 664px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 532px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 398px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
