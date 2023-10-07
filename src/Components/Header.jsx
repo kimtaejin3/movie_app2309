@@ -12,9 +12,9 @@ export default function Header() {
             }
           />
         </Link>
-        <Link to="/popular">Popular</Link>
-        <Link to="/top_rated">Top Rated</Link>
-        <Link to="/upcoming">Upcomoing</Link>
+        <Link to="/movies/popular">Popular</Link>
+        <Link to="/movies/top_rated">Top Rated</Link>
+        <Link to="/movies/upcoming">Upcomoing</Link>
       </Cell>
     </Container>
   );
