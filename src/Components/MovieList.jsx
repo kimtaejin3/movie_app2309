@@ -2,11 +2,17 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { config } from "../../constant";
 import Card from "./Card";
+import SearchBox from "../Components/SearchBox";
 import styled from "styled-components";
 
 export default function MovieList() {
   const [movies, setMovies] = useState([]);
   const params = useParams();
+
+  const [keyword, setKeyword] = useState("");
+  const onChangeKeyword = (e) => {
+    setKeyword(e.target.value);
+  };
 
   useEffect(() => {
     fetch(
@@ -17,17 +23,26 @@ export default function MovieList() {
       .then((res) => res.json())
       .then((data) => {
         setMovies(data.results);
+        setKeyword("");
       });
   }, [params.type]);
 
   return (
     <Container>
-      <h3 style={{ marginTop: "20px" }}>검색🔍</h3>
+      <SearchBox keyword={keyword} onChangeKeyword={onChangeKeyword} />
       <Title></Title>
       <Group>
-        {movies.map((movie) => {
-          return <Card key={movie.id} movie={movie}></Card>;
-        })}
+        {movies
+          .filter(
+            (movie) =>
+              movie.original_title
+                .toLowerCase()
+                .includes(keyword.toLowerCase()) ||
+              movie.title.toLowerCase().includes(keyword.toLowerCase())
+          )
+          .map((movie) => {
+            return <Card key={movie.id} movie={movie}></Card>;
+          })}
       </Group>
     </Container>
   );
